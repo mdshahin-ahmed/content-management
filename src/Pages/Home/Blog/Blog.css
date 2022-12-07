@@ -1,0 +1,22 @@
+.card-title {
+  font-size: 20px;
+}
+.blogInfo {
+  display: flex;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.blogName h6 {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-bottom: 0;
+}
+.blogName span {
+  margin: 0px 5px;
+  color: #ec0e0e;
+}
+.blogDate h6 {
+  color: #aaaaaa;
+  font-size: 14px;
+}

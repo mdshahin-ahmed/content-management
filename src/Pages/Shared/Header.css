@@ -1,0 +1,28 @@
+.brand {
+  color: white !important;
+  font-size: 30px !important;
+  font-weight: bold;
+}
+.navbarActive .brand {
+  color: white !important;
+}
+.navbar-nav a {
+  margin: 0px 5px;
+  color: white !important;
+  font-weight: bold;
+}
+.navbarActive .navbar-nav a {
+  margin: 0px 5px;
+  color: white !important;
+  font-weight: bold;
+}
+
+.navbar-nav .active {
+  color: #d1cecf !important;
+}
+.navbarActive .navbar-nav a:hover {
+  color: #d1cecf !important;
+}
+.navbarActive .navbar-nav .active {
+  color: #d1cecf !important;
+}
