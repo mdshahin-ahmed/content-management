@@ -1,0 +1,35 @@
+.drawer {
+  height: 100vh;
+  background-color: #ff0066;
+}
+.drawerMenuWrap {
+  background-color: #ff0066;
+}
+.drawerMenu {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0px;
+  border-top: 1px solid white;
+  padding-left: 20px;
+  text-align-last: left;
+  font-weight: bold;
+  cursor: pointer;
+}
+.drawerMenu:hover {
+  background-color: white;
+  color: #ff0066;
+  transition: all 1s;
+}
+.drawerMenu:last-child {
+  border-bottom: 1px solid white;
+}
+.drawerMenu span {
+  padding-left: 5px;
+}
+.toolbar {
+  background: #ff0066;
+}
+.dashboardText {
+  margin: auto !important;
+}

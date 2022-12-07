@@ -3,6 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -10,30 +11,29 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          {/* <Route path="/login" element={<Login></Login>}></Route> */}
+          <Route path="/home" element={<Home></Home>}></Route>
 
           {/* Dashboar route */}
 
-          {/* <Route path="/dashboard" element={<Dashboard></Dashboard>}> */}
+          <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+            {/* Dashboard inside route  */}
 
-          {/* Dashboard inside route  */}
+            {/* <Route path="/dashboard" element={<Inbox></Inbox>}></Route> */}
+            {/* <Route path="/dashboard/inbox" element={<Inbox></Inbox>}></Route> */}
 
-          {/* <Route path="/dashboard" element={<Inbox></Inbox>}></Route>
-            <Route path="/dashboard/inbox" element={<Inbox></Inbox>}></Route> */}
-
-          {/* <Route
+            {/* <Route
               path="/dashboard/addProject"
               element={<AddProject></AddProject>}
-            ></Route>
-            <Route
+            ></Route> */}
+            {/* <Route
               path="/dashboard/editProjects"
               element={<EditProject></EditProject>}
-            ></Route>
-            <Route
+            ></Route> */}
+            {/* <Route
               path="/dashboard/editProject/:id"
               element={<UpdateProjects></UpdateProjects>}
-            ></Route>
-          </Route> */}
+            ></Route> */}
+          </Route>
           {/* Dashboard roure finished  */}
         </Routes>
       </BrowserRouter>

@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import "./Blog.css";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
-    <div className="cardWrap  col-md-4 text-start">
+    <div className="cardWrap  col-md-4 text-start mb-5">
       <Card>
         <Card.Img
           variant="top"
@@ -29,7 +30,11 @@ const Blog = () => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <div className="text-center pb-3 pt-1">
+            <Link to="blog-details">
+              <Button variant="primary">Read More</Button>
+            </Link>
+          </div>
         </Card.Body>
       </Card>
     </div>

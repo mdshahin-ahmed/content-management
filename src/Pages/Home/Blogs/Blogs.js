@@ -3,7 +3,7 @@ import Blog from "../Blog/Blog";
 
 const Blogs = () => {
   return (
-    <div className="container my-5">
+    <div className="container">
       <div className="row">
         <Blog></Blog>
       </div>
