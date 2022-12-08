@@ -1,11 +1,12 @@
 import axios from "axios";
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert";
 
-import "./AddProject.css";
+import "./AddBlog.css";
 
-const AddProject = () => {
+const AddBlog = () => {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -15,21 +16,21 @@ const AddProject = () => {
     // formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    setLoading(true);
-    axios
-      .post("https://shahin-ahmed-portfolio.vercel.app/api/v1/project", data)
-      .then((res) => {
-        if (res.data.status === "success") {
-          reset();
-          setLoading(false);
-          swal({
-            title: "Good job!",
-            text: "Add Project Successfully!",
-            icon: "success",
-            button: "Done",
-          });
-        }
-      });
+    // setLoading(true);
+    // axios
+    //   .post("https://shahin-ahmed-portfolio.vercel.app/api/v1/project", data)
+    //   .then((res) => {
+    //     if (res.data.status === "success") {
+    //       reset();
+    //       setLoading(false);
+    //       swal({
+    //         title: "Good job!",
+    //         text: "Add Project Successfully!",
+    //         icon: "success",
+    //         button: "Done",
+    //       });
+    //     }
+    //   });
   };
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -41,8 +42,8 @@ const AddProject = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input
                     className="pInputField"
-                    placeholder="Enter Project Name"
-                    {...register("projectName", { required: true })}
+                    placeholder="Enter Blog Heading"
+                    {...register("blogHeading", { required: true })}
                   />
                   <br />
                   <textarea
@@ -53,23 +54,15 @@ const AddProject = () => {
                   <br />
                   <textarea
                     className="pInputField"
-                    placeholder="Enter Live Site Link"
+                    placeholder="Enter Your Name"
                     {...register("liveSiteLink", { required: true })}
                   />
                   <br />
                   <textarea
                     className="pInputField"
-                    placeholder="Enter GitHub Link"
+                    placeholder="Enter Description"
                     {...register("gitHubLink", { required: true })}
                   />
-                  <br />
-                  <input
-                    className="pInputField"
-                    placeholder="Enter Positin Number"
-                    type="number"
-                    {...register("position", { required: true })}
-                  />
-                  <br />
 
                   {loading ? (
                     <div
@@ -91,4 +84,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default AddBlog;

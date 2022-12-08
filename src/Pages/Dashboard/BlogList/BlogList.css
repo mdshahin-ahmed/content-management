@@ -1,0 +1,54 @@
+.tableHeadingWrap {
+  background-color: #ff0066;
+  color: white;
+}
+
+.headingName {
+  padding: 10px 0px;
+  border-right: 1px solid white;
+}
+.deleteHeading .headingName {
+  border: 0px;
+}
+.nameHeading {
+  width: 20% !important;
+}
+.emailHeading {
+  width: 15% !important;
+}
+.subjectlHeading {
+  width: 10% !important;
+}
+.messagelHeading {
+  width: 40% !important;
+}
+.dateHeading {
+  width: 10% !important;
+}
+.deleteHeading {
+  width: 5% !important;
+}
+.evenTr {
+  background: rgb(196, 190, 190);
+}
+.evenTr td {
+  border-right: 1px solid black;
+  padding: 5px;
+}
+.oddTr {
+  background: #ff0066;
+  color: white;
+}
+.oddTr td {
+  border-right: 1px solid black;
+  padding: 5px;
+}
+.evenTr td:last-child {
+  border: 0px;
+}
+.oddTr td:last-child {
+  border: 0px;
+}
+.tableDelete i {
+  cursor: pointer;
+}

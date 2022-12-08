@@ -31,13 +31,13 @@ function Dashboard(props) {
           <i className="fa-solid fa-house"></i>
           <span>Home</span>
         </Link>
-        <Link to="/dashboard/addProject" className="drawerMenu">
+        <Link to="/dashboard/blogs" className="drawerMenu">
+          <i className="fa-solid fa-briefcase"></i>
+          <span>Blogs</span>
+        </Link>
+        <Link to="/dashboard/add-blog" className="drawerMenu">
           <i className="fa-solid fa-square-plus"></i>
           <span>Add Project</span>
-        </Link>
-        <Link to="/dashboard/editProjects" className="drawerMenu">
-          <i className="fa-solid fa-briefcase"></i>
-          <span>Edit Projects</span>
         </Link>
       </Box>
     </div>

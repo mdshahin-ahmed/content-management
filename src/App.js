@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import AddBlog from "./Pages/Dashboard/AddBlog/AddBlog";
+import BlogList from "./Pages/Dashboard/BlogList/BlogList";
 
 function App() {
   return (
@@ -18,13 +20,16 @@ function App() {
           <Route path="/dashboard" element={<Dashboard></Dashboard>}>
             {/* Dashboard inside route  */}
 
-            {/* <Route path="/dashboard" element={<Inbox></Inbox>}></Route> */}
-            {/* <Route path="/dashboard/inbox" element={<Inbox></Inbox>}></Route> */}
+            <Route path="/dashboard" element={<BlogList></BlogList>}></Route>
+            <Route
+              path="/dashboard/blogs"
+              element={<BlogList></BlogList>}
+            ></Route>
 
-            {/* <Route
-              path="/dashboard/addProject"
-              element={<AddProject></AddProject>}
-            ></Route> */}
+            <Route
+              path="/dashboard/add-blog"
+              element={<AddBlog></AddBlog>}
+            ></Route>
             {/* <Route
               path="/dashboard/editProjects"
               element={<EditProject></EditProject>}

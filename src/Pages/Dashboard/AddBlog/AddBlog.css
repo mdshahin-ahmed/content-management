@@ -1,0 +1,32 @@
+.formWrap {
+  width: 50%;
+  margin: auto;
+}
+
+.pInputField {
+  width: 100%;
+  border: 2px solid #ff0066;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 5px;
+}
+
+.addProjectWrap {
+  border-radius: 10px;
+  background-color: rgb(180, 180, 180);
+}
+.btn-pink {
+  color: white;
+  background: #ff0066;
+  border: 0.1rem solid #ff0066;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+.btn-pink:hover {
+  color: white;
+  background-color: #f14b8d;
+  border: 0.1rem solid #f14b8d;
+  transition: all 0.5s;
+}
