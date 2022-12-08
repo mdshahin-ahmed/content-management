@@ -1,36 +1,28 @@
-import axios from "axios";
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import swal from "sweetalert";
+import { useDispatch } from "react-redux";
+import addContentData from "../../../redux/thunk/blogs/addBlogData";
 
 import "./AddBlog.css";
 
 const AddBlog = () => {
-  const [loading, setLoading] = useState(false);
-
   const {
     register,
     handleSubmit,
     reset,
     // formState: { errors },
   } = useForm();
+
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
-    // setLoading(true);
-    // axios
-    //   .post("https://shahin-ahmed-portfolio.vercel.app/api/v1/project", data)
-    //   .then((res) => {
-    //     if (res.data.status === "success") {
-    //       reset();
-    //       setLoading(false);
-    //       swal({
-    //         title: "Good job!",
-    //         text: "Add Project Successfully!",
-    //         icon: "success",
-    //         button: "Done",
-    //       });
-    //     }
-    //   });
+    console.log(data);
+    const content = {
+      ...data,
+      date: new Date(),
+    };
+    dispatch(addContentData(content));
+    reset();
   };
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -55,25 +47,16 @@ const AddBlog = () => {
                   <textarea
                     className="pInputField"
                     placeholder="Enter Your Name"
-                    {...register("liveSiteLink", { required: true })}
+                    {...register("name", { required: true })}
                   />
                   <br />
                   <textarea
                     className="pInputField"
                     placeholder="Enter Description"
-                    {...register("gitHubLink", { required: true })}
+                    {...register("description", { required: true })}
                   />
 
-                  {loading ? (
-                    <div
-                      className="mt-3 spinner-border text-danger"
-                      role="status"
-                    >
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : (
-                    <input className="btn-pink  mt-3" type="submit" />
-                  )}
+                  <input className="btn-pink  mt-3" type="submit" />
                 </form>
               </div>
             </div>
