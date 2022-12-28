@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import addContentData from "../../../redux/thunk/blogs/addBlogData";
+import swal from "sweetalert";
 
 import "./AddBlog.css";
 
@@ -16,12 +17,18 @@ const AddBlog = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     const content = {
       ...data,
       date: new Date(),
     };
     dispatch(addContentData(content));
+    swal({
+      title: "Good job!",
+      text: "Added content Successfully!",
+      icon: "success",
+      button: "Done",
+    });
     reset();
   };
   return (

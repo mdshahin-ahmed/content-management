@@ -16,6 +16,11 @@ const contentReducer = (state = initialState, action) => {
         ...state,
         contents: [...state.contents, action.payload],
       };
+    case GET_CONTENT:
+      return {
+        ...state,
+        contents: action.payload,
+      };
     // case DELETE_CONTENT:
     //   return {
     //     ...state,

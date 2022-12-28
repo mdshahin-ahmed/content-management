@@ -3,33 +3,26 @@ import { Button, Card } from "react-bootstrap";
 import "./Blog.css";
 import { Link } from "react-router-dom";
 
-const Blog = () => {
+const Blog = ({ data }) => {
+  const { blogHeading, src, name, description, date } = data;
+  const newDate = new Date(date);
   return (
     <div className="cardWrap  col-md-4 text-start mb-5">
       <Card>
-        <Card.Img
-          variant="top"
-          className="img-fluid"
-          src="https://cheerup.theme-sphere.com/magazine/wp-content/uploads/sites/7/2016/05/shutterstock_169856057-1170x780.jpg"
-        />
+        <Card.Img variant="top" className="img-fluid" src={src} />
         <Card.Body>
-          <Card.Title>
-            Small Business Owners Are Full of Passion And Smiles
-          </Card.Title>
+          <Card.Title>{blogHeading}</Card.Title>
           <div className="blogInfo">
             <div className="blogName">
               <h6>
-                BY<span>Shahin Ahmed</span>
+                BY<span>{name}</span>
               </h6>
             </div>
             <div className="blogDate">
-              <h6> - May 15, 2016</h6>
+              <h6> - {newDate.toDateString()}</h6>
             </div>
           </div>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Card.Text>{description.slice(0, 200)}....</Card.Text>
           <div className="text-center pb-3 pt-1">
             <Link to="blog-details">
               <Button variant="primary">Read More</Button>
