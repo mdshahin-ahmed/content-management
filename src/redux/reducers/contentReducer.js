@@ -21,13 +21,13 @@ const contentReducer = (state = initialState, action) => {
         ...state,
         contents: action.payload,
       };
-    // case DELETE_CONTENT:
-    //   return {
-    //     ...state,
-    //     contents: state.contents.filter(
-    //       (product) => product._id !== action.payload
-    //     ),
-    //   };
+    case DELETE_CONTENT:
+      return {
+        ...state,
+        contents: state.contents.filter(
+          (product) => product._id !== action.payload
+        ),
+      };
 
     default:
       return state;

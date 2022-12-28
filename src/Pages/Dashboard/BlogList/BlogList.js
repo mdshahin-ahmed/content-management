@@ -1,17 +1,19 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import "./BlogList.css";
-import swal from "sweetalert";
+// import swal from "sweetalert";
 
-import axios from "axios";
+// import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import loadContentData from "../../../redux/thunk/blogs/fetchContents";
+import deleteContentData from "../../../redux/thunk/blogs/deleteBlog";
 
 const BlogList = () => {
-  // const [messages, setMessages] = useState([]);
+  const contents = useSelector((state) => state.content.contents);
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     fetch("https://shahin-ahmed-portfolio.vercel.app/api/v1/message")
-  //       .then((res) => res.json())
-  //       .then((data) => setMessages(data.data));
-  //   }, [messages]);
+  useEffect(() => {
+    dispatch(loadContentData());
+  }, [dispatch]);
 
   //   const handleDelete = (id) => {
   //     swal({
@@ -39,83 +41,76 @@ const BlogList = () => {
 
   return (
     <>
-      <div chassName="spinnerDiv">
-        <div
-          className="spinner-border"
-          style={{
-            color: "#ff0066",
-            marginTop: "200px",
-            height: "10rem",
-            width: "10rem",
-            fontSize: "50px",
-          }}
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
+      {!contents.length ? (
+        <div chassName="spinnerDiv">
+          <div
+            className="spinner-border"
+            style={{
+              color: "#ff0066",
+              marginTop: "200px",
+              height: "10rem",
+              width: "10rem",
+              fontSize: "50px",
+            }}
+            role="status"
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
-      </div>
       ) : (
-      <div className="tableWrap container my-3">
-        <table className="w-100">
-          <thead className="tableHeadingWrap">
-            <th className="nameHeading">
-              <div className="headingName align-self-center">Name</div>
-            </th>
-            <th className="emailHeading">
-              <div className="headingName align-self-center">Email</div>
-            </th>
-            <th className="subjectlHeading">
-              <div className="headingName align-self-center">Subject</div>
-            </th>
-            <th className="messagelHeading">
-              <div className="headingName align-self-center">Message</div>
-            </th>
-            <th className="dateHeading">
-              <div className="headingName align-self-center">Date</div>
-            </th>
-            <th className="deleteHeading">
-              <div className="headingName align-self-center">Delete</div>
-            </th>
-          </thead>
-          <tbody>
-            {/* {messages.map((msg, index) => {
-                const { _id, name, email, subject, message, createdAt } = msg;
+        <div className="tableWrap container my-3">
+          <table className="w-100">
+            <thead className="tableHeadingWrap">
+              <th className="nameHeading">
+                <div className="headingName align-self-center">Name</div>
+              </th>
+              <th className="blogHeading">
+                <div className="headingName align-self-center">
+                  Blog Heading
+                </div>
+              </th>
+              <th className="dateHeading">
+                <div className="headingName align-self-center">Date</div>
+              </th>
+              <th className="modifyHeading">
+                <div className="headingName align-self-center">Modify</div>
+              </th>
+            </thead>
+            <tbody>
+              {contents.map((msg, index) => {
+                const { _id, name, blogHeading, date } = msg;
 
-                const dates = new Date(createdAt);
-                // const day = dates.getDate();
-                // const month = dates.getMonth();
-                // const year = dates.getFullYear();
-                const time = dates.toLocaleDateString();
-                const date = dates.toLocaleTimeString();
-                // console.log(month, day, year);
+                const dates = new Date(date);
+                const currentDate = dates.toLocaleDateString();
+                const time = dates.toLocaleTimeString();
                 return (
                   <tr
                     key={_id}
                     className={index % 2 === 0 ? "evenTr" : "oddTr"}
                   >
                     <td className="tableName">{name}</td>
-                    <td className="tableEmail">{email}</td>
-                    <td className="tableSubject">{subject}</td>
-                    <td className="tableMessage">{message}</td>
+                    <td className="tableHeading">{blogHeading}</td>
                     <td className="tableDate">
                       <span>
-                        {time}
+                        {currentDate}
                         <br />
-                        {date}
+                        {time}
                       </span>
                     </td>
-                    <td className="tableDelete">
+                    <td className="tableModify">
+                      <i className="fas fa-edit me-3 edit"></i>
                       <i
-                        onClick={() => handleDelete(_id)}
-                        className="fa-solid fa-trash"
+                        onClick={() => dispatch(deleteContentData(_id))}
+                        className="fa-solid fa-trash delete"
                       ></i>
                     </td>
                   </tr>
                 );
-              })} */}
-          </tbody>
-        </table>
-      </div>
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 };

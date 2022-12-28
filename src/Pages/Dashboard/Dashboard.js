@@ -37,7 +37,7 @@ function Dashboard(props) {
         </Link>
         <Link to="/dashboard/add-blog" className="drawerMenu">
           <i className="fa-solid fa-square-plus"></i>
-          <span>Add Project</span>
+          <span>Add blog</span>
         </Link>
       </Box>
     </div>
